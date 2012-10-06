@@ -12,10 +12,10 @@
 require 'spec_helper'
 
 describe User do
-  
+
   before do
     @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foodbar", password_confirmation: "foobar")
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   subject { @user }
@@ -51,7 +51,7 @@ describe User do
       addresses.each do |invalid_address|
         @user.email = invalid_address
         @user.should_not be_valid
-      end      
+      end
     end
   end
 
@@ -61,7 +61,7 @@ describe User do
       addresses.each do |valid_address|
         @user.email = valid_address
         @user.should be_valid
-      end      
+      end
     end
   end
 
@@ -86,7 +86,7 @@ describe User do
   end
 
   describe "when password confirmation is nul" do
-    before { @@user.password_confirmation = nil }
+    before { @user.password_confirmation = nil }
     it { should_not be_valid }
   end
 
